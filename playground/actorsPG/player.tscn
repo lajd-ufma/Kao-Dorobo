@@ -357,6 +357,7 @@ _sprite2D = NodePath("Sprite2D")
 bullet_scene = ExtResource("2_k07iq")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=462706298]
+position = Vector2(-0.29999542, -27.5)
 scale = Vector2(2.15, 2.15)
 texture = ExtResource("1_k1mh1")
 hframes = 8
@@ -366,19 +367,19 @@ libraries/ = SubResource("AnimationLibrary_p75wg")
 autoplay = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=161128430]
-position = Vector2(0, 26.5)
+position = Vector2(-0.29999542, -1)
 rotation = 1.5707964
 scale = Vector2(2, 2)
 shape = SubResource("CapsuleShape2D_4wguv")
 
 [node name="raycast_l" type="RayCast2D" parent="." unique_id=216258704]
-position = Vector2(-10, 30.5)
+position = Vector2(-10.299995, 3)
 rotation = 3.1415927
 target_position = Vector2(-0.99999666, 36)
 collision_mask = 184
 
 [node name="raycast_r" type="RayCast2D" parent="." unique_id=1885641895]
-position = Vector2(9, 30)
+position = Vector2(8.700005, 2.5)
 rotation = 3.1415927
 target_position = Vector2(2.861023e-06, 36)
 collision_mask = 184
@@ -386,13 +387,14 @@ collision_mask = 184
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1604911164]
 
 [node name="joystick" parent="CanvasLayer" unique_id=1818160590 instance=ExtResource("10_bx6a3")]
-offset_left = 96.0
-offset_top = -252.0
-offset_right = 452.0
-offset_bottom = 104.0
+offset_left = 95.40001
+offset_top = -307.0
+offset_right = 451.40002
+offset_bottom = 49.0
+metadata/_edit_use_anchors_ = true
 
 [node name="special" type="TouchScreenButton" parent="CanvasLayer" unique_id=919973814]
-position = Vector2(1024, 556)
+position = Vector2(1023.4, 501)
 scale = Vector2(4, 4)
 texture_normal = ExtResource("11_ajk66")
 texture_pressed = ExtResource("12_kf8lu")
@@ -400,7 +402,7 @@ shape = SubResource("RectangleShape2D_ajk66")
 action = "special"
 
 [node name="restart" type="TouchScreenButton" parent="CanvasLayer" unique_id=1536501881]
-position = Vector2(1116, 64)
+position = Vector2(1115.4, 9.000004)
 scale = Vector2(5, 5)
 texture_normal = ExtResource("13_uwut0")
 texture_pressed = ExtResource("14_0eitq")

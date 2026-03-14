@@ -125,15 +125,15 @@ func _process(_delta: float) -> void:
 
 func set_animation():
 	var anim := idle_animation
-	if velocity.y > 0:
+	if velocity.x != 0:
+		anim = "run_side"
+		idle_animation = "idle_side"
+	elif velocity.y > 0:
 		anim = "run"
 		idle_animation = "idle"
 	elif velocity.y < 0:
 		anim = "run_up"
 		idle_animation = "idle_up"
-	elif velocity.x != 0:
-		anim = "run_side"
-		idle_animation = "idle_side"
 	_animation.play(anim)
 
 func set_pode_entrar_na_agua(value): 
