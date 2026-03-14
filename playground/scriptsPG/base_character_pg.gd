@@ -6,50 +6,26 @@ class_name BaseCaracter
 @export var _dash_speed := 900.0
 @export var _dash_time := 0.15
 
-@export_category("Objects")
-@export var _animation: AnimationPlayer
-@export var _sprite2D: Sprite2D
+@export_category("Mask Textures")
+@export var default_frames: SpriteFrames
+@export var fire_mask_frames: SpriteFrames
+@export var water_mask_frames: SpriteFrames
+@export var wind_mask_frames: SpriteFrames
+@export var shadow_mask_frames: SpriteFrames
+
+var current_mask := "NONE"
 
 @export_category("Combat")
 @export var bullet_scene: PackedScene
 
-@onready var sprite: Sprite2D = $Sprite2D
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var raycast_l: RayCast2D = $raycast_l
 @onready var raycast_r: RayCast2D = $raycast_r
-#
-#var idle_agua := preload("res://assets/agua/idle_mask_agua.png")
-#var idle_side := preload("res://assets/agua/idle_left_agua.png")
-#var idle_up := preload("res://assets/agua/idle_up_agua.png")
-#
-#var run_agua := preload("res://assets/agua/run_down_agua.png")
-#var run_side := preload("res://assets/agua/run_left_agua.png")
-#var run_up := preload("res://assets/agua/run_up_agua.png")
-#
-#var SPRITES_AGUA :={
-	#"idle": idle_agua,
-	#"idle_side": idle_side,
-	#"idle_up": idle_up,
-	#"run": run_agua,
-	#"run_side": run_side,
-	#"run_up": idle_up,
-#}
-##var SPRITES_AGUA :={
-	##"idle": idle_agua,
-	##"idle_side": idle_side,
-	##"idle_up": idle_up,
-	##"run": run_agua,
-	##"run_side": run_side,
-	##"run_up": idle_up,
-##}
-#var textures := {
-	#"NONE": SPRITES_NONE,
-	#"AGUA": SPRITES_AGUA
-#}
-#var actual_textures = textures["NONE"]
 
 signal pegou_mascara
-var mask_element := ""
-var previous_mask := ""
+var masks := {}
+var mask_element := "NONE"
+var previous_mask := "NONE"
 var idle_animation := "idle"
 var pode_empurrar_bloco := false
 var pode_atirar := false
@@ -71,6 +47,15 @@ func _ready() -> void:
 		is_mobile = true
 	else:
 		$CanvasLayer.queue_free()
+	masks = {
+		"NONE": default_frames,
+		"AGUA": water_mask_frames,
+		"FOGO": fire_mask_frames,
+		"VENTO": wind_mask_frames,
+		#"SOMBRA": shadow_mask_frames,
+	}
+	
+	sprite.sprite_frames = masks[mask_element]
 
 func _active_special_button():
 	if special != null:
@@ -95,8 +80,9 @@ func mudar_mask_element(element):
 		"FOGO":
 			set_pode_atirar(false)
 	var tween_change_color:Tween = get_tree().create_tween()
-	#
-	#actual_textures = textures[mask_element]
+	
+	if masks.has(mask_element):
+		sprite.sprite_frames = masks[mask_element]
 	
 	match mask_element:
 		"AGUA":
@@ -134,7 +120,7 @@ func set_animation():
 	elif velocity.y < 0:
 		anim = "run_up"
 		idle_animation = "idle_up"
-	_animation.play(anim)
+	sprite.play(anim)
 
 func set_pode_entrar_na_agua(value): 
 	set_collision_mask_value(4, !value) 
@@ -187,9 +173,9 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 	if velocity.x > 0:
-		_sprite2D.flip_h = true
+		sprite.flip_h = true
 	elif velocity.x < 0:
-		_sprite2D.flip_h = false
+		sprite.flip_h = false
 
 func start_dash() -> void:
 	if is_dashing:
