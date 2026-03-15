@@ -19,14 +19,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7rdgn")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1185100477]
-layout_mode = 0
-offset_right = 1277.0
-offset_bottom = 772.0
-color = Color(0.08627451, 0.011764706, 0.20392157, 1)
-
 [node name="bg\'s" type="Node2D" parent="." unique_id=1067845891]
-modulate = Color(0.5605299, 0.701807, 0.91872835, 1)
+modulate = Color(0.56078434, 0.7019608, 0.91764706, 1)
 
 [node name="bg" type="Sprite2D" parent="bg\'s" unique_id=1028472559]
 position = Vector2(134.4, 635.4)

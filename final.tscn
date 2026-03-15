@@ -1,46 +1,19 @@
 [gd_scene format=3 uid="uid://bc0njrjwyv4f1"]
 
 [ext_resource type="Script" uid="uid://cu1nxno7f2ndu" path="res://final.gd" id="1_tvybu"]
+[ext_resource type="Texture2D" uid="uid://db0g3a4ebydo0" path="res://assets/background/imagem_tiles.png" id="2_7678y"]
 [ext_resource type="PackedScene" uid="uid://ckymstwshore8" path="res://playground/actorsPG/background_music.tscn" id="2_qt6nr"]
+[ext_resource type="Texture2D" uid="uid://hmiryuisnu17" path="res://assets/masks/mask_fujin.png" id="3_7ijlv"]
 [ext_resource type="FontFile" uid="uid://y7odnc4gyphw" path="res://assets/Asimovian/Asimovian-Regular.ttf" id="3_qt6nr"]
+[ext_resource type="Texture2D" uid="uid://bimyd2uuajof6" path="res://assets/masks/mask_izanami.png" id="4_awkn3"]
+[ext_resource type="Texture2D" uid="uid://ttxqtx74tal7" path="res://assets/MaskWater.png" id="5_iquii"]
+[ext_resource type="Texture2D" uid="uid://qq4oo68p55mg" path="res://assets/masks/mask_kagutsuchi.png" id="6_xethn"]
 
-[sub_resource type="Animation" id="Animation_tvybu"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(360, 250)]
-}
-
-[sub_resource type="Animation" id="Animation_qt6nr"]
-resource_name = "idle"
-length = 2.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 1.9666667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(360, 250), Vector2(340, 260), Vector2(360, 250)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_7678y"]
-_data = {
-&"RESET": SubResource("Animation_tvybu"),
-&"idle": SubResource("Animation_qt6nr")
-}
+[sub_resource type="LabelSettings" id="LabelSettings_7ijlv"]
+font = ExtResource("3_qt6nr")
+font_size = 52
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
 
 [node name="final" type="Control" unique_id=964009383]
 layout_mode = 3
@@ -51,28 +24,158 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tvybu")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=127185259]
-layout_mode = 0
-offset_right = 1282.0
-offset_bottom = 772.0
-color = Color(0, 0, 0, 1)
+[node name="bg\'s" type="Node2D" parent="." unique_id=1951845872]
+modulate = Color(0.5605299, 0.701807, 0.91872835, 1)
+
+[node name="bg" type="Sprite2D" parent="bg\'s" unique_id=1103526469]
+position = Vector2(134.4, 635.4)
+scale = Vector2(1.05, 1.05)
+texture = ExtResource("2_7678y")
+hframes = 7
+vframes = 2
+frame = 2
+
+[node name="bg2" type="Sprite2D" parent="bg\'s" unique_id=1131149933]
+position = Vector2(1145.4, 635.4)
+scale = Vector2(1.05, 1.05)
+texture = ExtResource("2_7678y")
+hframes = 7
+vframes = 2
+frame = 5
+
+[node name="bg3" type="Sprite2D" parent="bg\'s" unique_id=1383636204]
+position = Vector2(134.4, 382.4)
+scale = Vector2(1.05, 1.05)
+texture = ExtResource("2_7678y")
+hframes = 7
+vframes = 2
+frame = 1
+
+[node name="bg4" type="Sprite2D" parent="bg\'s" unique_id=1120527656]
+position = Vector2(134.4, 126.399994)
+rotation = 1.5707964
+scale = Vector2(1.05, 1.05)
+texture = ExtResource("2_7678y")
+hframes = 7
+vframes = 2
+frame = 2
+
+[node name="bg5" type="Sprite2D" parent="bg\'s" unique_id=423087744]
+position = Vector2(1145.4, 126.399994)
+rotation = -1.5707964
+scale = Vector2(1.05, 1.05)
+texture = ExtResource("2_7678y")
+hframes = 7
+vframes = 2
+frame = 5
+
+[node name="bg6" type="Sprite2D" parent="bg\'s" unique_id=1605198213]
+position = Vector2(1145.4, 380.4)
+rotation = -3.1415925
+scale = Vector2(1.05, 1.05)
+texture = ExtResource("2_7678y")
+hframes = 7
+vframes = 2
+frame = 1
+
+[node name="bg9" type="Sprite2D" parent="bg\'s" unique_id=319310734]
+position = Vector2(639.4, 635.4)
+rotation = -1.5707964
+scale = Vector2(1.05, 1.05)
+texture = ExtResource("2_7678y")
+hframes = 7
+vframes = 2
+frame = 1
+
+[node name="bg10" type="Sprite2D" parent="bg\'s" unique_id=182582404]
+position = Vector2(892.4, 635.4)
+rotation = -1.5707964
+scale = Vector2(1.05, 1.05)
+texture = ExtResource("2_7678y")
+hframes = 7
+vframes = 2
+frame = 1
+
+[node name="bg11" type="Sprite2D" parent="bg\'s" unique_id=1917229259]
+position = Vector2(388.4, 635.4)
+rotation = -1.5707964
+scale = Vector2(1.05, 1.05)
+texture = ExtResource("2_7678y")
+hframes = 7
+vframes = 2
+frame = 1
+
+[node name="bg12" type="Sprite2D" parent="bg\'s" unique_id=915268465]
+position = Vector2(382.4, 126.399994)
+rotation = 1.5707964
+scale = Vector2(1.05, 1.05)
+texture = ExtResource("2_7678y")
+hframes = 7
+vframes = 2
+frame = 1
+
+[node name="bg13" type="Sprite2D" parent="bg\'s" unique_id=1618200816]
+position = Vector2(638.4, 126.399994)
+rotation = 1.5707964
+scale = Vector2(1.05, 1.05)
+texture = ExtResource("2_7678y")
+hframes = 7
+vframes = 2
+frame = 1
+
+[node name="bg14" type="Sprite2D" parent="bg\'s" unique_id=468195250]
+position = Vector2(894.4, 126.399994)
+rotation = 1.5707964
+scale = Vector2(1.05, 1.05)
+texture = ExtResource("2_7678y")
+hframes = 7
+vframes = 2
+frame = 1
+
+[node name="bg15" type="Sprite2D" parent="bg\'s" unique_id=46449276]
+position = Vector2(390.4, 382.4)
+rotation = 1.5707964
+scale = Vector2(1.05, 1.05)
+texture = ExtResource("2_7678y")
+hframes = 7
+vframes = 2
+
+[node name="bg16" type="Sprite2D" parent="bg\'s" unique_id=98054901]
+position = Vector2(902.4, 382.4)
+rotation = 1.5707964
+scale = Vector2(1.05, 1.05)
+texture = ExtResource("2_7678y")
+hframes = 7
+vframes = 2
+
+[node name="bg17" type="Sprite2D" parent="bg\'s" unique_id=1948071118]
+position = Vector2(646.4, 382.4)
+rotation = 1.5707964
+scale = Vector2(1.05, 1.05)
+texture = ExtResource("2_7678y")
+hframes = 7
+vframes = 2
+
+[node name="masks" type="Node2D" parent="." unique_id=1972781307]
+position = Vector2(0, -38)
+
+[node name="Sprite2D" type="Sprite2D" parent="masks" unique_id=2011338032]
+position = Vector2(1010, 377)
+texture = ExtResource("3_7ijlv")
+
+[node name="Sprite2D2" type="Sprite2D" parent="masks" unique_id=912194719]
+position = Vector2(920, 624)
+texture = ExtResource("4_awkn3")
+
+[node name="Sprite2D4" type="Sprite2D" parent="masks" unique_id=518790452]
+position = Vector2(388, 624)
+texture = ExtResource("5_iquii")
+
+[node name="Sprite2D3" type="Sprite2D" parent="masks" unique_id=151720657]
+position = Vector2(304, 392)
+texture = ExtResource("6_xethn")
 
 [node name="background_music" parent="." unique_id=932558068 instance=ExtResource("2_qt6nr")]
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=665034068]
-
-[node name="Label" type="Label" parent="." unique_id=333602500]
-layout_mode = 0
-offset_left = 360.0
-offset_top = 250.0
-offset_right = 827.0
-offset_bottom = 338.0
-theme_override_font_sizes/font_size = 64
-text = "Pabéms pasou!"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Label" unique_id=1444347077]
-libraries/ = SubResource("AnimationLibrary_7678y")
-autoplay = &"idle"
 
 [node name="button_quit" type="Button" parent="." unique_id=438120069]
 layout_mode = 1
@@ -81,14 +184,25 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -91.0
-offset_top = 90.0
-offset_right = 154.0
-offset_bottom = 163.5
+offset_left = -118.0
+offset_top = 187.0
+offset_right = 127.0
+offset_bottom = 260.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_qt6nr")
 theme_override_font_sizes/font_size = 32
 text = "Fechar"
+
+[node name="Label" type="Label" parent="." unique_id=1508708088]
+layout_mode = 0
+offset_left = 236.0
+offset_top = 89.0
+offset_right = 1056.0
+offset_bottom = 211.0
+theme_override_font_sizes/font_size = 38
+text = "Fim de Jogo"
+label_settings = SubResource("LabelSettings_7ijlv")
+horizontal_alignment = 1
 
 [connection signal="pressed" from="button_quit" to="." method="_on_button_quit_pressed"]
