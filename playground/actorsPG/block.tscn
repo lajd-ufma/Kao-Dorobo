@@ -4,12 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://0t4nww3lqf3e" path="res://assets/sprite que contem a caixa(mod2).png" id="2_kl5gq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2xesk"]
-size = Vector2(59, 100)
+size = Vector2(59, 67)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_id6cy"]
-size = Vector2(52.000004, 104)
+size = Vector2(52.000004, 53.333336)
 
 [node name="Block" type="Node2D" unique_id=857622503]
+z_index = 3
 script = ExtResource("1_kl5gq")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1261224743]
@@ -22,16 +23,16 @@ texture = ExtResource("2_kl5gq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1179916996]
 light_mask = 0
-position = Vector2(-0.5, 0)
+position = Vector2(-0.5, 16.5)
 shape = SubResource("RectangleShape2D_2xesk")
 debug_color = Color(0.9693307, 0, 0.4651823, 0.41960785)
 
 [node name="StaticBody2D" type="CharacterBody2D" parent="." unique_id=563866234]
 collision_layer = 16
-collision_mask = 299
+collision_mask = 491
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=448785546]
-position = Vector2(0.5, 9.536743e-07)
+position = Vector2(0.5, 19)
 scale = Vector2(0.75, 0.75)
 shape = SubResource("RectangleShape2D_id6cy")
 debug_color = Color(5.1499906e-06, 0.6300494, 0.47968268, 0.41960785)

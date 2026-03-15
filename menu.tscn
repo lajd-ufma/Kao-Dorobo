@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://hmiryuisnu17" path="res://assets/masks/mask_fujin.png" id="3_l48gv"]
 [ext_resource type="Texture2D" uid="uid://bimyd2uuajof6" path="res://assets/masks/mask_izanami.png" id="4_ecwwl"]
 [ext_resource type="Texture2D" uid="uid://qq4oo68p55mg" path="res://assets/masks/mask_kagutsuchi.png" id="5_kk3ma"]
+[ext_resource type="Texture2D" uid="uid://ttxqtx74tal7" path="res://assets/MaskWater.png" id="5_nrnbx"]
 [ext_resource type="FontFile" uid="uid://y7odnc4gyphw" path="res://assets/Asimovian/Asimovian-Regular.ttf" id="6_ecwwl"]
 [ext_resource type="Texture2D" uid="uid://c3lafjsu80vrb" path="res://assets/title.png" id="6_l48gv"]
 [ext_resource type="AudioStream" uid="uid://cfohmftkmvvpc" path="res://assets/musics/som ambiente.mp3" id="7_ecwwl"]
@@ -18,14 +19,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7rdgn")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1185100477]
-layout_mode = 0
-offset_right = 1277.0
-offset_bottom = 772.0
-color = Color(0.08627451, 0.011764706, 0.20392157, 1)
-
 [node name="bg\'s" type="Node2D" parent="." unique_id=1067845891]
-modulate = Color(0.5605299, 0.701807, 0.91872835, 1)
+modulate = Color(0.56078434, 0.7019608, 0.91764706, 1)
 
 [node name="bg" type="Sprite2D" parent="bg\'s" unique_id=1028472559]
 position = Vector2(134.4, 635.4)
@@ -157,14 +152,19 @@ hframes = 7
 vframes = 2
 
 [node name="masks" type="Node2D" parent="." unique_id=892006186]
+position = Vector2(0, -38)
 
 [node name="Sprite2D" type="Sprite2D" parent="masks" unique_id=671987179]
 position = Vector2(1010, 377)
 texture = ExtResource("3_l48gv")
 
 [node name="Sprite2D2" type="Sprite2D" parent="masks" unique_id=1338216124]
-position = Vector2(640, 624)
+position = Vector2(920, 624)
 texture = ExtResource("4_ecwwl")
+
+[node name="Sprite2D4" type="Sprite2D" parent="masks" unique_id=403969964]
+position = Vector2(388, 624)
+texture = ExtResource("5_nrnbx")
 
 [node name="Sprite2D3" type="Sprite2D" parent="masks" unique_id=1526426569]
 position = Vector2(304, 392)
@@ -177,15 +177,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -120.0
+offset_left = -117.0
 offset_top = -88.0
-offset_right = 127.64514
+offset_right = 130.64514
 offset_bottom = -13.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("6_ecwwl")
 theme_override_font_sizes/font_size = 32
-text = "Start"
+text = "Começar"
 
 [node name="button_quit" type="Button" parent="." unique_id=1662419922]
 layout_mode = 1
@@ -194,15 +194,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -120.0
-offset_top = 24.0
-offset_right = 125.0
-offset_bottom = 97.5
+offset_left = -117.0
+offset_top = 28.0
+offset_right = 128.0
+offset_bottom = 101.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("6_ecwwl")
 theme_override_font_sizes/font_size = 32
-text = "Quit"
+text = "Sair"
 
 [node name="title" type="Sprite2D" parent="." unique_id=1621103133]
 position = Vector2(640, 176)

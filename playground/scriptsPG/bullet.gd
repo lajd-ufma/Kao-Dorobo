@@ -16,10 +16,8 @@ func _on_body_entered(body: Node2D) -> void:
 	animation_player.play("disappearing")
 	direction = Vector2.ZERO
 	if body.is_in_group("cipo"):
-		print("sadas")
 		body.emit_signal("tomou_fogo")
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "disappearing":
-		print("chegou aqui")
 		queue_free()

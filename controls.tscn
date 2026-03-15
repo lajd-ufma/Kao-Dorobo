@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://c40qrgj3nopo1"]
+
+[ext_resource type="Script" uid="uid://dyr8lxmkjy1aw" path="res://controls.gd" id="1_gpdjo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4vqr3"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_gpdjo"]
+font_size = 32
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4vqr3"]
+size = Vector2(300, 20)
+
+[node name="controls" type="Control" unique_id=94617974]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gpdjo")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2099195684]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 758.0
+color = Color(0.023529412, 0.023529412, 0.09019608, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1731455548]
+layout_mode = 0
+offset_left = 304.0
+offset_top = 134.0
+offset_right = 925.0
+offset_bottom = 179.0
+text = "Use WASD ou setas para se mover no PC"
+label_settings = SubResource("LabelSettings_4vqr3")
+
+[node name="Label2" type="Label" parent="." unique_id=1884068857]
+layout_mode = 0
+offset_left = 360.0
+offset_top = 187.0
+offset_right = 891.0
+offset_bottom = 232.0
+text = "Use J ou Space para soltar Especial"
+label_settings = SubResource("LabelSettings_gpdjo")
+
+[node name="CheckBox" type="CheckBox" parent="." unique_id=1421096957]
+layout_mode = 0
+offset_left = 449.0
+offset_top = 312.0
+offset_right = 776.0
+offset_bottom = 354.0
+theme_override_font_sizes/font_size = 24
+action_mode = 0
+text = "Ativar Botões para Mobile"
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="CheckBox" unique_id=1125844457]
+position = Vector2(165, 18)
+scale = Vector2(1.2155062, 1.9979185)
+shape = SubResource("RectangleShape2D_4vqr3")
+
+[connection signal="pressed" from="CheckBox" to="." method="_on_check_box_pressed"]
+[connection signal="pressed" from="CheckBox/TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]

@@ -1,0 +1,177 @@
+[gd_scene format=3 uid="uid://y653e3b7g8bt"]
+
+[ext_resource type="Texture2D" uid="uid://db0g3a4ebydo0" path="res://assets/background/imagem_tiles.png" id="1_ujg7t"]
+[ext_resource type="Texture2D" uid="uid://hmiryuisnu17" path="res://assets/masks/mask_fujin.png" id="2_fwiyp"]
+[ext_resource type="Texture2D" uid="uid://bimyd2uuajof6" path="res://assets/masks/mask_izanami.png" id="3_ct5df"]
+[ext_resource type="Texture2D" uid="uid://ttxqtx74tal7" path="res://assets/MaskWater.png" id="4_20imm"]
+[ext_resource type="Texture2D" uid="uid://qq4oo68p55mg" path="res://assets/masks/mask_kagutsuchi.png" id="5_bu22o"]
+[ext_resource type="Texture2D" uid="uid://c3lafjsu80vrb" path="res://assets/title.png" id="6_jf3fg"]
+
+[node name="banner" type="Control" unique_id=1696802559]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=913796184]
+layout_mode = 0
+offset_right = 1277.0
+offset_bottom = 772.0
+color = Color(0.08627451, 0.011764706, 0.20392157, 1)
+
+[node name="bg\'s" type="Node2D" parent="." unique_id=86633324]
+modulate = Color(0.5605299, 0.701807, 0.91872835, 1)
+
+[node name="bg" type="Sprite2D" parent="bg\'s" unique_id=696345829]
+position = Vector2(134.4, 635.4)
+scale = Vector2(1.05, 1.05)
+texture = ExtResource("1_ujg7t")
+hframes = 7
+vframes = 2
+frame = 2
+
+[node name="bg2" type="Sprite2D" parent="bg\'s" unique_id=1590947453]
+position = Vector2(1145.4, 635.4)
+scale = Vector2(1.05, 1.05)
+texture = ExtResource("1_ujg7t")
+hframes = 7
+vframes = 2
+frame = 5
+
+[node name="bg3" type="Sprite2D" parent="bg\'s" unique_id=1938017216]
+position = Vector2(134.4, 382.4)
+scale = Vector2(1.05, 1.05)
+texture = ExtResource("1_ujg7t")
+hframes = 7
+vframes = 2
+frame = 1
+
+[node name="bg4" type="Sprite2D" parent="bg\'s" unique_id=1157135423]
+position = Vector2(134.4, 126.399994)
+rotation = 1.5707964
+scale = Vector2(1.05, 1.05)
+texture = ExtResource("1_ujg7t")
+hframes = 7
+vframes = 2
+frame = 2
+
+[node name="bg5" type="Sprite2D" parent="bg\'s" unique_id=173655792]
+position = Vector2(1145.4, 126.399994)
+rotation = -1.5707964
+scale = Vector2(1.05, 1.05)
+texture = ExtResource("1_ujg7t")
+hframes = 7
+vframes = 2
+frame = 5
+
+[node name="bg6" type="Sprite2D" parent="bg\'s" unique_id=1902629398]
+position = Vector2(1145.4, 380.4)
+rotation = -3.1415925
+scale = Vector2(1.05, 1.05)
+texture = ExtResource("1_ujg7t")
+hframes = 7
+vframes = 2
+frame = 1
+
+[node name="bg9" type="Sprite2D" parent="bg\'s" unique_id=1256341454]
+position = Vector2(639.4, 635.4)
+rotation = -1.5707964
+scale = Vector2(1.05, 1.05)
+texture = ExtResource("1_ujg7t")
+hframes = 7
+vframes = 2
+frame = 1
+
+[node name="bg10" type="Sprite2D" parent="bg\'s" unique_id=168208493]
+position = Vector2(892.4, 635.4)
+rotation = -1.5707964
+scale = Vector2(1.05, 1.05)
+texture = ExtResource("1_ujg7t")
+hframes = 7
+vframes = 2
+frame = 1
+
+[node name="bg11" type="Sprite2D" parent="bg\'s" unique_id=2083683680]
+position = Vector2(388.4, 635.4)
+rotation = -1.5707964
+scale = Vector2(1.05, 1.05)
+texture = ExtResource("1_ujg7t")
+hframes = 7
+vframes = 2
+frame = 1
+
+[node name="bg12" type="Sprite2D" parent="bg\'s" unique_id=1192350673]
+position = Vector2(382.4, 126.399994)
+rotation = 1.5707964
+scale = Vector2(1.05, 1.05)
+texture = ExtResource("1_ujg7t")
+hframes = 7
+vframes = 2
+frame = 1
+
+[node name="bg13" type="Sprite2D" parent="bg\'s" unique_id=1480223979]
+position = Vector2(638.4, 126.399994)
+rotation = 1.5707964
+scale = Vector2(1.05, 1.05)
+texture = ExtResource("1_ujg7t")
+hframes = 7
+vframes = 2
+frame = 1
+
+[node name="bg14" type="Sprite2D" parent="bg\'s" unique_id=1045286884]
+position = Vector2(894.4, 126.399994)
+rotation = 1.5707964
+scale = Vector2(1.05, 1.05)
+texture = ExtResource("1_ujg7t")
+hframes = 7
+vframes = 2
+frame = 1
+
+[node name="bg15" type="Sprite2D" parent="bg\'s" unique_id=1331852685]
+position = Vector2(390.4, 382.4)
+rotation = 1.5707964
+scale = Vector2(1.05, 1.05)
+texture = ExtResource("1_ujg7t")
+hframes = 7
+vframes = 2
+
+[node name="bg16" type="Sprite2D" parent="bg\'s" unique_id=869105942]
+position = Vector2(902.4, 382.4)
+rotation = 1.5707964
+scale = Vector2(1.05, 1.05)
+texture = ExtResource("1_ujg7t")
+hframes = 7
+vframes = 2
+
+[node name="bg17" type="Sprite2D" parent="bg\'s" unique_id=308674266]
+position = Vector2(646.4, 382.4)
+rotation = 1.5707964
+scale = Vector2(1.05, 1.05)
+texture = ExtResource("1_ujg7t")
+hframes = 7
+vframes = 2
+
+[node name="masks" type="Node2D" parent="." unique_id=1694167707]
+
+[node name="Sprite2D" type="Sprite2D" parent="masks" unique_id=1050412388]
+position = Vector2(1100, 400)
+texture = ExtResource("2_fwiyp")
+
+[node name="Sprite2D2" type="Sprite2D" parent="masks" unique_id=1289753655]
+position = Vector2(500, 400)
+texture = ExtResource("3_ct5df")
+
+[node name="Sprite2D4" type="Sprite2D" parent="masks" unique_id=237285687]
+position = Vector2(800, 400)
+texture = ExtResource("4_20imm")
+
+[node name="Sprite2D3" type="Sprite2D" parent="masks" unique_id=1171746800]
+position = Vector2(200, 400)
+texture = ExtResource("5_bu22o")
+
+[node name="title" type="Sprite2D" parent="." unique_id=1577945620]
+position = Vector2(640, 176)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_jf3fg")

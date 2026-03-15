@@ -14,14 +14,15 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="GGJ Jogo Protótipo"
+config/name="Kao Dorobo"
 run/main_scene="uid://cvsqklaxyct54"
 config/features=PackedStringArray("4.6", "Mobile")
-config/icon="res://icon.svg"
+config/icon="uid://c3lafjsu80vrb"
 
 [autoload]
 
 MusicManager="*uid://d24fjxg1du6pp"
+Settings="*uid://c6j8j8xyc5io4"
 
 [display]
 
@@ -84,6 +85,10 @@ restart={
 ]
 }
 
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
 [layer_names]
 
 2d_render/layer_1="player"
@@ -104,3 +109,4 @@ restart={
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true

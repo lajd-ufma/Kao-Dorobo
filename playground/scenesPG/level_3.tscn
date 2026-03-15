@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://h4vm1pmkjc6u" path="res://generic_mask.tscn" id="5_rix16"]
 [ext_resource type="PackedScene" uid="uid://cq4r5hd3cwbmi" path="res://playground/actorsPG/chave.tscn" id="6_dh8n7"]
 [ext_resource type="FontFile" uid="uid://y7odnc4gyphw" path="res://assets/Asimovian/Asimovian-Regular.ttf" id="8_dh8n7"]
+[ext_resource type="Script" uid="uid://dktxej4k07bp8" path="res://playground/scenesPG/label_tuto_special.gd" id="10_8wgyt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dh8n7"]
 texture = ExtResource("2_lyhxg")
@@ -81,11 +82,12 @@ position = Vector2(640, 128)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1457744762]
 
-[node name="Label" type="Label" parent="CanvasLayer" unique_id=810398323]
-offset_left = 87.0
-offset_top = 318.0
-offset_right = 511.0
-offset_bottom = 447.0
+[node name="label_tuto_special" type="Label" parent="CanvasLayer" unique_id=810398323]
+offset_left = 64.0
+offset_top = 198.0
+offset_right = 523.0
+offset_bottom = 327.0
 text = "Coloque a Máscara Kagutsuchi 
    para poder usar o fogo"
 label_settings = SubResource("LabelSettings_iegnt")
+script = ExtResource("10_8wgyt")

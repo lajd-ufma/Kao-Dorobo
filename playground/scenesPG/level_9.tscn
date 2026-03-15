@@ -70,7 +70,7 @@ position = Vector2(257, 623)
 
 [node name="portao" parent="." unique_id=964659488 instance=ExtResource("6_fvdba")]
 position = Vector2(1143, 357)
-next_scene_path = "res://playground/scenesPG/level_8.tscn"
+next_scene_path = "res://final.tscn"
 
 [node name="player" parent="." unique_id=1362530387 instance=ExtResource("7_tf2kw")]
 position = Vector2(161, 385)

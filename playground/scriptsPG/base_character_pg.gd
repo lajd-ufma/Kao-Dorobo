@@ -6,50 +6,26 @@ class_name BaseCaracter
 @export var _dash_speed := 900.0
 @export var _dash_time := 0.15
 
-@export_category("Objects")
-@export var _animation: AnimationPlayer
-@export var _sprite2D: Sprite2D
+@export_category("Mask Textures")
+@export var default_frames: SpriteFrames
+@export var fire_mask_frames: SpriteFrames
+@export var water_mask_frames: SpriteFrames
+@export var wind_mask_frames: SpriteFrames
+@export var shadow_mask_frames: SpriteFrames
+
+var current_mask := "NONE"
 
 @export_category("Combat")
 @export var bullet_scene: PackedScene
 
-@onready var sprite: Sprite2D = $Sprite2D
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var raycast_l: RayCast2D = $raycast_l
 @onready var raycast_r: RayCast2D = $raycast_r
-#
-#var idle_agua := preload("res://assets/agua/idle_mask_agua.png")
-#var idle_side := preload("res://assets/agua/idle_left_agua.png")
-#var idle_up := preload("res://assets/agua/idle_up_agua.png")
-#
-#var run_agua := preload("res://assets/agua/run_down_agua.png")
-#var run_side := preload("res://assets/agua/run_left_agua.png")
-#var run_up := preload("res://assets/agua/run_up_agua.png")
-#
-#var SPRITES_AGUA :={
-	#"idle": idle_agua,
-	#"idle_side": idle_side,
-	#"idle_up": idle_up,
-	#"run": run_agua,
-	#"run_side": run_side,
-	#"run_up": idle_up,
-#}
-##var SPRITES_AGUA :={
-	##"idle": idle_agua,
-	##"idle_side": idle_side,
-	##"idle_up": idle_up,
-	##"run": run_agua,
-	##"run_side": run_side,
-	##"run_up": idle_up,
-##}
-#var textures := {
-	#"NONE": SPRITES_NONE,
-	#"AGUA": SPRITES_AGUA
-#}
-#var actual_textures = textures["NONE"]
 
 signal pegou_mascara
-var mask_element := ""
-var previous_mask := ""
+var masks := {}
+var mask_element := "NONE"
+var previous_mask := "NONE"
 var idle_animation := "idle"
 var pode_empurrar_bloco := false
 var pode_atirar := false
@@ -60,9 +36,36 @@ var is_dashing := false
 var dash_timer := 0.0
 var dash_direction := Vector2.ZERO
 
+var is_mobile:= false
+@onready var joystick: Control = $CanvasLayer/joystick
+@onready var special: TouchScreenButton = $CanvasLayer/special
+
 func _ready() -> void:
-	print(scale)
 	pegou_mascara.connect(mudar_mask_element)
+	_disactive_special_button()
+	if OS.has_feature("web_android") or OS.has_feature("web_ios"):
+		is_mobile = true
+	else:
+		$CanvasLayer.queue_free()
+	masks = {
+		"NONE": default_frames,
+		"AGUA": water_mask_frames,
+		"FOGO": fire_mask_frames,
+		"VENTO": wind_mask_frames,
+		#"SOMBRA": shadow_mask_frames,
+	}
+	
+	sprite.sprite_frames = masks[mask_element]
+
+func _active_special_button():
+	if special != null:
+		special.modulate = Color.WHITE
+		special.visible = true
+
+func _disactive_special_button():
+	if special != null:
+		special.modulate = Color.DARK_GRAY
+		special.visible = false
 
 func mudar_mask_element(element):
 	previous_mask = mask_element
@@ -77,50 +80,57 @@ func mudar_mask_element(element):
 		"FOGO":
 			set_pode_atirar(false)
 	var tween_change_color:Tween = get_tree().create_tween()
-	#
-	#actual_textures = textures[mask_element]
+	
+	if masks.has(mask_element):
+		sprite.sprite_frames = masks[mask_element]
 	
 	match mask_element:
 		"AGUA":
+			_disactive_special_button()
 			tween_change_color.tween_property(self, "modulate", Color.ROYAL_BLUE, 1)
-			print("entrou aqui")
 			set_pode_entrar_na_agua(true)
 		"VENTO":
+			_active_special_button()
 			tween_change_color.tween_property(self, "modulate", Color.DARK_SEA_GREEN, 1)
 			set_pode_empurrar_bloco(true)
 		"SOMBRA":
+			_active_special_button()
 			tween_change_color.tween_property(self, "modulate", Color.MEDIUM_PURPLE, 1)
 			set_pode_dar_dash(true)
 		"FOGO":
+			_active_special_button()
 			tween_change_color.tween_property(self, "modulate", Color.DARK_ORANGE, 1)
 			set_pode_atirar(true)
+
 func _process(_delta: float) -> void:
 	if raycast_l.is_colliding() or raycast_r.is_colliding():
-		z_index=2
+		z_index=5
 	else:
-		z_index = 1
+		z_index = 2
 	set_animation()
+
 func set_animation():
 	var anim := idle_animation
-	# animações
-	if velocity.y > 0:
+	if velocity.x != 0:
+		anim = "run_side"
+		idle_animation = "idle_side"
+	elif velocity.y > 0:
 		anim = "run"
 		idle_animation = "idle"
-		#if sprite.texture != actual_textures["idle"]:
-			#sprite.texture = actual_textures["idle"]
 	elif velocity.y < 0:
 		anim = "run_up"
 		idle_animation = "idle_up"
-	elif velocity.x != 0:
-		anim = "run_side"
-		idle_animation = "idle_side"
-	_animation.play(anim)
+	sprite.play(anim)
+
 func set_pode_entrar_na_agua(value): 
 	set_collision_mask_value(4, !value) 
+
 func set_pode_empurrar_bloco(value): 
 	pode_empurrar_bloco = value
+
 func set_pode_dar_dash(value):
 	pode_dar_dash = value
+
 func set_pode_atirar(value):
 	pode_atirar = value
 
@@ -132,11 +142,11 @@ func _input(event):
 			start_dash()
 	if event.is_action_pressed("restart"):
 		get_tree().reload_current_scene()
+
 func _physics_process(delta: float) -> void:
 	if is_dashing:
 		velocity = dash_direction * _dash_speed
 		move_and_slide()
-
 		dash_timer -= delta
 		if dash_timer <= 0:
 			is_dashing = false
@@ -144,30 +154,28 @@ func _physics_process(delta: float) -> void:
 		return
 
 	var input_dir := Vector2.ZERO
-	input_dir.x = Input.get_axis("move_left","move_right")
-	input_dir.y = Input.get_axis("move_up", "move_down")
-
-	# trava em 4 direções
-	if abs(input_dir.x) > abs(input_dir.y):
-		input_dir.y = 0
-		input_dir.x = sign(input_dir.x)
+	
+	if is_mobile:
+		input_dir = joystick.get_direction()
 	else:
-		input_dir.x = 0
-		input_dir.y = sign(input_dir.y)
+		input_dir.x = Input.get_axis("move_left", "move_right")
+		input_dir.y = Input.get_axis("move_up", "move_down")
 
 	if input_dir != Vector2.ZERO:
+		input_dir = input_dir.normalized()
 		last_direction = input_dir
 
 	velocity = input_dir * _move_speed
+
 	position.x = clamp(position.x, 0, 1280)
 	position.y = clamp(position.y, 0, 768)
+
 	move_and_slide()
 
-	# sprite
 	if velocity.x > 0:
-		_sprite2D.flip_h = true
+		sprite.flip_h = true
 	elif velocity.x < 0:
-		_sprite2D.flip_h = false
+		sprite.flip_h = false
 
 func start_dash() -> void:
 	if is_dashing:
@@ -175,8 +183,6 @@ func start_dash() -> void:
 	set_collision_mask_value(6, false)
 	is_dashing = true
 	dash_timer = _dash_time
-
-	# dash sempre na última direção válida
 	dash_direction = last_direction
 
 func shoot() -> void:

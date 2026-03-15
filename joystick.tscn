@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://cp7e57u4on1mp"]
+
+[ext_resource type="Script" uid="uid://pmatkxdp6v3w" path="res://joystick.gd" id="5_odctf"]
+[ext_resource type="Texture2D" uid="uid://by6ld8yihfm86" path="res://assets/VirtualJoystickPack/JoystickSplitted.png" id="6_85gfs"]
+[ext_resource type="Texture2D" uid="uid://dpp55kws3drtx" path="res://assets/VirtualJoystickPack/LargeHandleFilled.png" id="8_mcjvo"]
+
+[node name="joystick" type="Control" unique_id=651682145]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = -248.0
+offset_right = 386.0
+offset_bottom = 108.0
+grow_vertical = 0
+size_flags_horizontal = 0
+script = ExtResource("5_odctf")
+
+[node name="base" type="TextureRect" parent="." unique_id=763025889]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_85gfs")
+expand_mode = 1
+
+[node name="stick" type="TextureRect" parent="base" unique_id=261486180]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.0
+offset_top = -104.0
+offset_right = 104.0
+offset_bottom = 104.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_mcjvo")
+expand_mode = 1

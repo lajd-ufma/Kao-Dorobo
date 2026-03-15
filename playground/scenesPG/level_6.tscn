@@ -60,9 +60,6 @@ position = Vector2(921, 617)
 position = Vector2(1105, 350)
 next_scene_path = "res://playground/scenesPG/level_7.tscn"
 
-[node name="Block" parent="." unique_id=857622503 instance=ExtResource("4_klbxv")]
-position = Vector2(302, 389)
-
 [node name="generic_mask" parent="." unique_id=241255481 instance=ExtResource("5_gw57w")]
 position = Vector2(354, 105)
 mask_element = 1
@@ -94,6 +91,9 @@ scale = Vector2(-2.3203945, 6.950015)
 [node name="cipo3" parent="." unique_id=1611595289 instance=ExtResource("6_mnlx1")]
 position = Vector2(989, 388)
 scale = Vector2(-2.3203945, 6.950015)
+
+[node name="Block" parent="." unique_id=857622503 instance=ExtResource("4_klbxv")]
+position = Vector2(302, 389)
 
 [node name="Button" parent="." unique_id=37416142 node_paths=PackedStringArray("wall") instance=ExtResource("11_bght0")]
 position = Vector2(903, 130.00002)

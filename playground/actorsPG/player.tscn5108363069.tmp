@@ -1,0 +1,385 @@
+[gd_scene format=3 uid="uid://de4nhquuknynq"]
+
+[ext_resource type="Script" uid="uid://b6vre4o6y3ndj" path="res://playground/scriptsPG/base_character_pg.gd" id="1_4wguv"]
+[ext_resource type="Texture2D" uid="uid://dve3uwr31p2up" path="res://assets/sprite_mask/IDLE/idle_mask.png" id="1_k1mh1"]
+[ext_resource type="PackedScene" uid="uid://uw4p3rfvkvhj" path="res://playground/actorsPG/bullet.tscn" id="2_k07iq"]
+[ext_resource type="Texture2D" uid="uid://3xm71nrccq2h" path="res://assets/sprite_mask/IDLE/idle_left.png" id="2_lxe16"]
+[ext_resource type="Texture2D" uid="uid://5b3hytpc44wk" path="res://assets/sprite_mask/IDLE/idle_up.png" id="3_4wguv"]
+[ext_resource type="Texture2D" uid="uid://qflol1sr8bu2" path="res://assets/sprite_mask/RUN/run_down.png" id="5_k07iq"]
+[ext_resource type="Texture2D" uid="uid://q18rtxqwqdnf" path="res://assets/agua/idle_mask_agua.png" id="6_xoof6"]
+[ext_resource type="Texture2D" uid="uid://csvtl6h16g1ih" path="res://assets/sprite_mask/RUN/run_left.png" id="7_p75wg"]
+[ext_resource type="Texture2D" uid="uid://c7pbmeghepgu3" path="res://assets/sprite_mask/RUN/run_up.png" id="8_xoof6"]
+[ext_resource type="PackedScene" uid="uid://cp7e57u4on1mp" path="res://joystick.tscn" id="10_bx6a3"]
+
+[sub_resource type="Animation" id="Animation_j1rto"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_k1mh1")]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(8, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_frj6c"]
+resource_name = "idle"
+length = 0.8
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_k1mh1")]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(8, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2, 2, 2, 2, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.016666668, -0.16666667, 0, 0, 2, -0.016666668, -0.16666667, 0, 0, 3, -0.01666667, -0.16666667, 0, 0, 4, -0.016666666, -0.16666667, 0, 0, 5, -0.016666666, -0.16666667, 0, 0, 6, -0.016666671, -0.16666669, 0, 0, 7, -0.016666662, -0.16666669, 0, 0),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7)
+}
+
+[sub_resource type="Animation" id="Animation_k07iq"]
+resource_name = "idle_side"
+length = 0.8
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_lxe16")]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(8, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2, 2, 2, 2, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.016666668, -0.16666667, 0, 0, 2, -0.016666668, -0.16666667, 0, 0, 3, -0.01666667, -0.16666667, 0, 0, 4, -0.016666666, -0.16666667, 0, 0, 5, -0.016666666, -0.16666667, 0, 0, 6, -0.016666671, -0.16666669, 0, 0, 7, -0.016666662, -0.16666669, 0, 0),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7)
+}
+
+[sub_resource type="Animation" id="Animation_ren0b"]
+resource_name = "idle_up"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_4wguv")]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(10, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2, 2, 2, 2, 2, 2, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.016666668, -0.16666667, 0, 0, 2, -0.016666668, -0.16666667, 0, 0, 3, -0.01666667, -0.16666667, 0, 0, 4, -0.016666666, -0.16666667, 0, 0, 5, -0.016666666, -0.16666667, 0, 0, 6, -0.016666671, -0.16666669, 0, 0, 7, -0.016666662, -0.16666669, 0, 0, 8, -0.016666671, -0.16666669, 0, 0, 9, -0.016666671, -0.16666669, 0, 0),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.90000004)
+}
+
+[sub_resource type="Animation" id="Animation_ajk66"]
+resource_name = "idle_water"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_xoof6")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_p75wg"]
+resource_name = "run"
+length = 0.9
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_k07iq")]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(9, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2, 2, 2, 2, 2, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.016666668, -0.16666667, 0, 0, 2, -0.016666668, -0.16666667, 0, 0, 3, -0.01666667, -0.16666667, 0, 0, 4, -0.016666666, -0.16666667, 0, 0, 5, -0.016666666, -0.16666667, 0, 0, 6, -0.016666671, -0.16666669, 0, 0, 7, -0.016666662, -0.16666669, 0, 0, 8, -0.016666671, -0.16666669, 0, 0),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8)
+}
+
+[sub_resource type="Animation" id="Animation_xoof6"]
+resource_name = "run_side"
+length = 0.8
+step = 0.1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2, 2, 2, 2, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.016666668, -0.16666667, 0, 0, 2, -0.016666668, -0.16666667, 0, 0, 3, -0.01666667, -0.16666667, 0, 0, 4, -0.016666666, -0.16666667, 0, 0, 5, -0.016666666, -0.16666667, 0, 0, 6, -0.016666671, -0.16666669, 0, 0, 7, -0.016666662, -0.16666669, 0, 0),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_p75wg")]
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(8, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_bx6a3"]
+resource_name = "run_up"
+length = 0.8
+step = 0.1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2, 2, 2, 2, 2, 2, 2, 2, 2),
+"points": PackedFloat32Array(0, 0, 0, 0.016666668, 0.16666667, 1, -0.016666668, -0.16666667, 0, 0, 2, -0.016666668, -0.16666667, 0, 0, 3, -0.01666667, -0.16666667, 0, 0, 4, -0.016666666, -0.16666667, 0, 0, 5, -0.016666666, -0.16666667, 0, 0, 6, -0.016666671, -0.16666669, 0, 0, 7, -0.016666662, -0.16666669, 0, 0, 7, -0.016666671, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_xoof6")]
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(8, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p75wg"]
+_data = {
+&"RESET": SubResource("Animation_j1rto"),
+&"idle": SubResource("Animation_frj6c"),
+&"idle_side": SubResource("Animation_k07iq"),
+&"idle_up": SubResource("Animation_ren0b"),
+&"idle_water": SubResource("Animation_ajk66"),
+&"run": SubResource("Animation_p75wg"),
+&"run_side": SubResource("Animation_xoof6"),
+&"run_up": SubResource("Animation_bx6a3")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4wguv"]
+radius = 7.5
+height = 20.5
+
+[node name="player" type="CharacterBody2D" unique_id=1362530387 node_paths=PackedStringArray("_animation", "_sprite2D") groups=["player"]]
+z_index = 2
+scale = Vector2(2, 2)
+collision_mask = 254
+script = ExtResource("1_4wguv")
+_animation = NodePath("AnimationPlayer")
+_sprite2D = NodePath("Sprite2D")
+bullet_scene = ExtResource("2_k07iq")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=462706298]
+scale = Vector2(2.15, 2.15)
+texture = ExtResource("1_k1mh1")
+hframes = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=147587207]
+libraries/ = SubResource("AnimationLibrary_p75wg")
+autoplay = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=161128430]
+position = Vector2(0, 26.5)
+rotation = 1.5707964
+scale = Vector2(2, 2)
+shape = SubResource("CapsuleShape2D_4wguv")
+
+[node name="raycast_l" type="RayCast2D" parent="." unique_id=216258704]
+position = Vector2(-10, 30.5)
+rotation = 3.1415927
+target_position = Vector2(-0.99999666, 36)
+collision_mask = 184
+
+[node name="raycast_r" type="RayCast2D" parent="." unique_id=1885641895]
+position = Vector2(9, 30)
+rotation = 3.1415927
+target_position = Vector2(2.861023e-06, 36)
+collision_mask = 184
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1604911164]
+
+[node name="joystick" parent="CanvasLayer" unique_id=1818160590 instance=ExtResource("10_bx6a3")]
+offset_left = 0.0
+offset_top = -356.0
+offset_right = 356.0
+offset_bottom = 0.0
